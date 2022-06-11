@@ -80,4 +80,88 @@ nav {
     color: #777;
 }
 
+/* Balance section styles */
+.app {
+    position: relative;
+    max-width: 100rem;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: auto repeat(3, 15rem) auto;
+    gap: 2rem;
+  
+    /* NOTE This creates the fade in/out anumation */
+    opacity: 0;
+    transition: all 1s;
+}
+  
+.balance {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+  
+.balance__label {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: -0.2rem;
+}
+  
+.balance__date {
+    font-size: 1.4rem;
+    color: #888;
+}
+  
+.balance__value {
+    font-size: 4.5rem;
+    font-weight: 400;
+}
+  
+/* Movements section styles */
+.movements {
+    grid-row: 2 / span 3;
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: scroll;
+}
+  
+.movements__row {
+    padding: 2.25rem 4rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+  
+.movements__type {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.1rem 1rem;
+    border-radius: 10rem;
+    margin-right: 2rem;
+}
+  
+.movements__date {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #666;
+}
+  
+.movements__type--deposit {
+    background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+  
+.movements__type--withdrawal {
+    background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+  
+.movements__value {
+    font-size: 1.7rem;
+    margin-left: auto;
+}
+  
 
