@@ -1,3 +1,11 @@
+/* 1.core section styles */
+/* 2.navigation section styles */
+/* 3.balance section styles */
+/* 4. Movements section styles */
+/* 5.Summary section styles */
+/* 6.Operations section styles */
+
+
 /* Core styles */
 * {
     margin: 0;
@@ -19,7 +27,6 @@ body {
 }
 
 /* Navigation section styles  */
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -282,3 +289,15 @@ h2 {
     outline: none;
     background-color: rgba(255, 255, 255, 0.8);
 }
+
+.logout-timer {
+    padding: 0 0.3rem;
+    margin-top: 1.9rem;
+    text-align: right;
+    font-size: 1.25rem;
+  }
+  
+  .timer {
+    font-weight: 600;
+  }
+  
