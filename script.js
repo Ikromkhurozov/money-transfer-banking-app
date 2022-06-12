@@ -4,28 +4,28 @@ const account1 = {
     owner: 'Ikrom Umarov',
     movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
     interestRate: 1.2, // %
-    pin: 1111,
+    pin: 1113,
 };
   
 const account2 = {
-    owner: 'Islom Umarov',
+    owner: 'Cristiano Ronaldo',
     movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
     interestRate: 1.5,
-    pin: 2222,
+    pin: 7777,
 };
   
 const account3 = {
     owner: 'Toni Cross',
     movements: [200, -200, 340, -300, -20, 50, 400, -460],
     interestRate: 0.7,
-    pin: 3333,
+    pin: 8888,
 };
   
 const account4 = {
-    owner: 'Eden Hazard',
+    owner: 'Karim Benzema',
     movements: [430, 1000, 700, 50, 90],
     interestRate: 1,
-    pin: 4444,
+    pin: 9999,
 };
   
 const accounts = [account1, account2, account3, account4];
@@ -55,3 +55,31 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+// Dom manipulation of account1 object
+const displayMovements = function(movements) {
+    containerMovements.innerHTML = ''; // => means that  .textContent = 0
+
+    movements.forEach(function(mov, i) {
+        const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+        const html = `
+            <div class="movements__row">
+                <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+                <div class="movements__value">${mov}</div>
+            </div>
+        `;
+
+        containerMovements.insertAdjacentHTML('afterbegin', html);
+    });
+};
+displayMovements(account1.movements);
+
+const createUsernames = function(accs) {
+    accs.forEach(function(acc) {
+        acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('');
+    });
+};
+createUsernames(accounts);
+console.log(accounts);
+
