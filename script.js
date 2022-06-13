@@ -57,10 +57,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 // Dom manipulation of account1 object
-const displayMovements = function(movements) {
-    containerMovements.innerHTML = ''; // => means that  .textContent = 0
+const displayMovements = function(movements, sort = false) {
+    containerMovements.innerHTML = ''; 
 
-    movements.forEach(function(mov, i) {
+    const movs = sort ? movements.slice().sort((a, b) => a - b) : movements; 
+
+    movs.forEach(function(mov, i) {
         const type = mov > 0 ? 'deposit' : 'withdrawal';
 
         const html = `
@@ -183,3 +185,10 @@ btnClose.addEventListener('click', function(e) {
     }
 });
 
+//sort button
+let sorted = false;
+btnSort.addEventListener('click', function(e) {
+    e.preventDefault();
+    displayMovements(currentAccount.movements, !sorted);
+    sorted = !sorted
+})
