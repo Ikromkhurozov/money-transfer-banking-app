@@ -1,7 +1,7 @@
 'use strict';
 // Data
 const account1 = {
-    owner: 'Ikrom Umarov',
+    owner: 'Umarov Ikrom',
     movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
     interestRate: 1.2, // %
     pin: 1113,
@@ -15,14 +15,14 @@ const account2 = {
 };
   
 const account3 = {
-    owner: 'Toni Cross',
+    owner: 'Muhammad Salah',
     movements: [200, -200, 340, -300, -20, 50, 400, -460],
     interestRate: 0.7,
-    pin: 8888,
+    pin: 1111,
 };
   
 const account4 = {
-    owner: 'Karim Benzema',
+    owner: 'Eden Hazard',
     movements: [430, 1000, 700, 50, 90],
     interestRate: 1,
     pin: 9999,
@@ -73,15 +73,12 @@ const displayMovements = function(movements) {
         containerMovements.insertAdjacentHTML('afterbegin', html);
     });
 };
-displayMovements(account1.movements);
 
 // Displaying calculated balance to label
 const calcDisplayBalance = function(movements) {
     const balance = movements.reduce((acc, mov) => acc + mov, 0);
-    console.log(balance);
     labelBalance.textContent = `${balance} €`;
 }
-calcDisplayBalance(account1.movements);// fix it later for all accounts
 
 //calc summary 
 const calcDisplaySummary = function(movements) {
@@ -97,12 +94,11 @@ const calcDisplaySummary = function(movements) {
 
     const interest = movements
         .filter(mov => mov > 0)
-        .map(deposit => (deposit * 1.2) / 100)
+        .map(deposit => (deposit * movements.interestRate) / 100)
         .filter(int => int >= 1)
         .reduce((mov, int) => mov + int, 0);
     labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
 
 //creating usernames
 const createUsernames = function(accs) {
@@ -111,4 +107,33 @@ const createUsernames = function(accs) {
     });
 };
 createUsernames(accounts);
+
+// Event handler & Login 
+let currentAccount;
+
+btnLogin.addEventListener('click', function(e) {
+    //Prevent form from submitting
+    e.preventDefault();
+
+    currentAccount = accounts
+        .find(acc => acc.username === inputLoginUsername.value
+    );
+    console.log(currentAccount);
+
+    if(currentAccount?.pin === Number(inputLoginPin.value)) {
+        //Display UI and message
+        labelWelcome.textContent = `Welcome back! ${currentAccount.owner.split(' ')[1]}`;
+        containerApp.style.opacity = 100;
+
+        // Clear input fields 
+        inputLoginUsername.value = inputLoginPin.value = '';
+        inputLoginPin.blur();
+        // Display movements 
+        displayMovements(currentAccount.movements);
+        // Display balance 
+        calcDisplayBalance(currentAccount.movements);
+        // Display summary 
+        calcDisplaySummary(currentAccount.movements);
+    }
+});
 
