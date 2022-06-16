@@ -21,7 +21,7 @@ const account1 = {
 };
   
 const account2 = {
-    owner: 'Cristiano Ronaldo',
+    owner: 'Cristiano Ronaldu',
     movements: [5000, 3400, -150, -790, -3210, -1000, 10500, -30],
     interestRate: 1.5,
     pin: 7777,
@@ -34,7 +34,7 @@ const account2 = {
         '2022-02-05T16:33:06.386Z',
         '2022-04-10T14:43:26.374Z',
         '2022-06-15T18:49:59.371Z',
-        '2022-06-17T12:01:20.894Z',
+        '2022-06-16T12:01:20.894Z',
     ],
     currency: 'EUR',
     locale: 'pt-PT',
@@ -220,7 +220,7 @@ btnLogin.addEventListener("click", function (e) {
   
     if (currentAccount?.pin === +inputLoginPin.value) {
         // Display UI and message
-        labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(" ")[0]}`;
+        labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(" ")[1]}`;
         containerApp.style.opacity = 100;
     
         // Create current date and time
