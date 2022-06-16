@@ -43,6 +43,11 @@ const account2 = {
 const accounts = [account1, account2];
   
 // Elements
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnsOpenModal = document.querySelectorAll('.show-modal');
+
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -67,6 +72,31 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+//modal
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+  };
+  
+  const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  };
+  
+  for (let i = 0; i < btnsOpenModal.length; i++)
+    btnsOpenModal[i].addEventListener('click', openModal);
+  
+  btnCloseModal.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  
+  document.addEventListener('keydown', function (e) {
+    // console.log(e.key);
+  
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
 
 alert(`
 PLEASE USE THIS LOGINS FOR ENTER THE ACCOUNTS!!!:
