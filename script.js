@@ -328,9 +328,9 @@ btnClose.addEventListener("click", function (e) {
 });
 
 //sort btn
-let sorted = false;
-btnSort.addEventListener("click", function (e) {
-    e.preventDefault();
-    displayMovements(currentAccount.movements, !sorted);
-    sorted = !sorted;
-});
+// let sorted = false;
+// btnSort.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     displayMovements(currentAccount.movs, !sorted);
+//     sorted = !sorted;
+// });
