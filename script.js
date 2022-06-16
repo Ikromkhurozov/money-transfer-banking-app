@@ -98,15 +98,6 @@ const openModal = function () {
     }
   });
 
-alert(`
-PLEASE USE THIS LOGINS FOR ENTER THE ACCOUNTS!!!:
-
-        User 1: ui          User 2: cr
-         Pin 1: 1113         Pin 2: 7777
-
-AND TRY BOTH OF THEM TO SEE MY WORKS!!!
-`);
-
 /////////////////////////////////////////////////
 // Functions
 
